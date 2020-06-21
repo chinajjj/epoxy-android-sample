@@ -6,6 +6,6 @@ package com.johnpaulcas.epoxy_sample.constant
 class Book(
     val title: String,
     val description: String,
-    val isSold: Boolean
+    var isSold: Boolean
 ) {
 }

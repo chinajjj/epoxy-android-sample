@@ -8,7 +8,7 @@ import com.johnpaulcas.epoxy_sample.constant.ViewType
  */
 data class RvView(
     val viewType: ViewType,
-    val title: String,
+    var title: String,
     val description: String
 ) {
 

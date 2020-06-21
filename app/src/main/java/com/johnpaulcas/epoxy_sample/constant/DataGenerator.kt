@@ -7,7 +7,7 @@ import com.johnpaulcas.epoxy_sample.models.RvView
  */
 object DataGenerator {
 
-    fun generateData(): List<RvView> {
+    fun generateData(): MutableList<RvView> {
         val data = mutableListOf<RvView>()
         for (n in 0 until 10) {
             if (n == 0) {

@@ -2,6 +2,7 @@ package com.johnpaulcas.epoxy_sample.viewmodel
 
 import android.content.Context
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,8 @@ import kotlinx.android.synthetic.main.carouselview_layout.view.*
  */
 @EpoxyModelClass(layout = R.layout.carouselview_layout)
 abstract class CarouselViewModel: EpoxyModelWithHolder<CarouselViewModel.CarouselViewHolder>() {
+
+    private var counter = 0
 
     @EpoxyAttribute
     var context: Context? = null
@@ -39,16 +42,26 @@ abstract class CarouselViewModel: EpoxyModelWithHolder<CarouselViewModel.Carouse
             }
         }
 
+        holder.btnUpdateStatus.setOnClickListener {
+            if (counter < books.size) {
+                books[counter].isSold = true
+                holder.rvCarousel.requestModelBuild()
+                counter ++
+            }
+        }
+
     }
 
     inner class CarouselViewHolder: EpoxyHolder() {
 
         lateinit var rvCarousel: EpoxyRecyclerView
         lateinit var rvCarouselTitle: AppCompatTextView
+        lateinit var btnUpdateStatus: Button
 
         override fun bindView(itemView: View) {
             rvCarousel = itemView.rvCarousel
             rvCarouselTitle = itemView.tvCarouselTitle
+            btnUpdateStatus = itemView.btnUpdateStatus
         }
     }
 }
