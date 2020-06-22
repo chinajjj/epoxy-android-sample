@@ -22,7 +22,7 @@ abstract class CarouselItemModel: EpoxyModelWithHolder<CarouselItemModel.Carouse
 
     override fun bind(holder: CarouselItemHolder) {
         super.bind(holder)
-        holder.tvCarouseTitle.text = title
+        holder.tvCarouseTitle.text = title + if (status) { "Sold" } else { "Available" }
         holder.tvStatus.text = if (status) {
             "Sold"
         } else {

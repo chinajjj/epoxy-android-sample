@@ -34,4 +34,13 @@ object DataGenerator {
         return data
     }
 
+    fun getBooks(): MutableList<Book> {
+        return mutableListOf<Book>(
+            Book("Book 1", "Desc 1", false),
+            Book("Book 2", "Desc 2", false),
+            Book("Book 3", "Desc 3", false),
+            Book("Book 4", "Desc 4", false)
+        )
+    }
+
 }

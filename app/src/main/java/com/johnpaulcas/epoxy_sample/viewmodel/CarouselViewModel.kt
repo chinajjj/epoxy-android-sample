@@ -28,8 +28,12 @@ abstract class CarouselViewModel: EpoxyModelWithHolder<CarouselViewModel.Carouse
     @EpoxyAttribute
     var books: MutableList<Book> = mutableListOf()
 
+    @EpoxyAttribute
+    var toggleChange: Boolean = false
+
     override fun bind(holder: CarouselViewHolder) {
         super.bind(holder)
+
         holder.rvCarouselTitle.text = carouselTitle
         holder.rvCarousel.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         holder.rvCarousel.withModels {
@@ -49,6 +53,8 @@ abstract class CarouselViewModel: EpoxyModelWithHolder<CarouselViewModel.Carouse
                 counter ++
             }
         }
+
+        holder.rvCarousel.requestModelBuild()
 
     }
 
