@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateCarouselData() {
-//        data[data.size - 1].carousel[0].isSold = true
         if (counter < carouselData.size) {
             carouselData[counter].isSold = true
             carouselToogleChange = !carouselToogleChange
@@ -41,11 +40,6 @@ class MainActivity : AppCompatActivity() {
             counter ++
         }
         rvEpoxySample.requestModelBuild()
-//        if (counter < data.size) {
-//            data[counter].title = "Awesomeness"
-//            rvEpoxySample.requestModelBuild()
-//            counter++
-//        }
     }
 
     private fun initRecyclerView() {
@@ -59,20 +53,6 @@ class MainActivity : AppCompatActivity() {
 
         rvEpoxySample.withModels {
 
-            carousel {
-                id("carousel")
-                hasFixedSize(true)
-//                padding(Carousel.Padding.dp(0, 4, 0, 16, 8))
-                models(models)
-            }
-
-//            carouselView {
-//                id("carousel")
-//                context(this@MainActivity)
-//                carouselTitle("Carousel")
-//                toggleChange(carouselToogleChange)
-//                books(carouselData)
-//            }
             data.forEachIndexed { position, data ->
                 when (data.viewType) {
                     ViewType.HEADER -> {
